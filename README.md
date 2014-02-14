@@ -1,5 +1,8 @@
+# chef-seedbox
 
-## Index:
+Chef kitchen to setup a complete seedbox
+
+## Index
 
 - `SRCDIR`: local host directory where your Chef's kitchen is located
 - `REMOTE_HOST`: remote host IP of FQDN
