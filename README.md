@@ -10,13 +10,16 @@ On your local computer (warning: this downloads half of the galaxy):
     gem install chef       --verbose   # Or install it from your package manager
     gem install knife-solo --verbose
 
-    export PATH=$PATH:~/.gem/ruby/2.1.0/bin
+    export PATH=$PATH:~/.gem/ruby/2.1.0/bin   # You might need to fix the path version
 
 Ensure your remote host is available throught SSH and that you have a sudo enabled account on it.
 
-## First init (no need to run again, this is just here for the record)
+## First init
+
+(no need to run again, this is just here for the record)
 
 On the local host, generate skeleton:
+
     knife solo init ${SRCDIR}
 
 ## Run Chef
