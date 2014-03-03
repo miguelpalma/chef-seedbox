@@ -2,20 +2,20 @@
 
 Chef kitchen to setup a complete seedbox
 
+In the rest of this doc, we will assume you have a sudo enabled SSH login on a host and a network
+alias `sbdev` pointing at it.
+
 ## Index
 
 - `SRCDIR`: local host directory where your Chef's kitchen is located
-- `REMOTE_HOST`: remote host IP of FQDN
 
 ## Install
 
-On your local computer (warning: this downloads half of the galaxy):
-    gem install chef       --verbose   # Or install it from your package manager
-    gem install knife-solo --verbose
+On your local computer, install `knife-solo` and `librarian-chef` using your package manager or:
 
-    export PATH=$PATH:~/.gem/ruby/2.1.0/bin   # You might need to fix the path version
-
-Ensure your remote host is available throught SSH and that you have a sudo enabled account on it.
+    gem install knife-solo librarian-chef --no-ri --no-rdoc
+    # You might need to fix the path version
+    export PATH=$PATH:~/.gem/ruby/2.1.0/bin
 
 ## First init
 
@@ -24,16 +24,33 @@ Ensure your remote host is available throught SSH and that you have a sudo enabl
 On the local host, generate skeleton:
 
     knife solo init ${SRCDIR}
+    cd ${SRCDIR}
+    librarian-chef init
+
+## Add a new recipe
+
+Add it to `Cheffile` then the following will download all its dependencies to directory `cookbook`:
+
+    librarian-chef install
+
+You can then override recipes attributes in `nodes/sbdev.json`.
+
+NB: directory `cookbook` is **not** tracked by git.
 
 ## Run Chef
 
-On the local host:
+On the local host, to install chef on the remote host:
 
-     knife solo prepare ${REMOTE_HOST}
+     knife solo prepare sbdev
+
+On the local host, to install chef on the remote host:
+
+    knife solo cook sbdev
 
 ## Documentation
 
-[knife-solo](http://matschaffer.github.io/knife-solo/)
+[knife-solo official doc](http://matschaffer.github.io/knife-solo/)
+This page is largely based on [Deploy a basic lamp stack to Digital Ocean with Chef Solo](http://adamcod.es/2013/06/04/deploy-a-basic-lamp-stack-digital-ocean-chef-solo.html)
 
 ## TODO
 
