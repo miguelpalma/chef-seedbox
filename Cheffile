@@ -3,6 +3,7 @@
 
 site 'http://community.opscode.com/api/v1'
 
+cookbook 'apache2'
 # cookbook 'chef-client'
 
 # cookbook 'apache2', '>= 1.0.0'
