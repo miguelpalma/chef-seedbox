@@ -49,8 +49,8 @@ On the local host, to deploy the requested applications on the remote host:
 
 ## Documentation
 
-[knife-solo official doc](http://matschaffer.github.io/knife-solo/)
-This page is largely based on [Deploy a basic lamp stack to Digital Ocean with Chef Solo](http://adamcod.es/2013/06/04/deploy-a-basic-lamp-stack-digital-ocean-chef-solo.html)
+- [knife-solo official doc](http://matschaffer.github.io/knife-solo/)
+- This page is largely based on [Deploy a basic lamp stack to Digital Ocean with Chef Solo](http://adamcod.es/2013/06/04/deploy-a-basic-lamp-stack-digital-ocean-chef-solo.html)
 
 ## TODO
 
