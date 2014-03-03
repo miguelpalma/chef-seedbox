@@ -29,13 +29,13 @@ On the local host, generate skeleton:
 
 ## Add a new recipe
 
-Add it to `Cheffile` then the following will download all its dependencies to directory `cookbook`:
+Find the recipe to install on [Opscode community site](http://community.opscode.com/) and add its name to file `Cheffile`. The following will then download all its dependencies to directory `cookbook`:
 
     librarian-chef install
 
-You can then override recipes attributes in `nodes/sbdev.json`.
-
 NB: directory `cookbook` is **not** tracked by git.
+
+Also add it to the `nodes/sbdev.json` file along with attributes from recipes you wish to override.
 
 ## Run Chef
 
@@ -43,7 +43,7 @@ On the local host, to install chef on the remote host:
 
      knife solo prepare sbdev
 
-On the local host, to install chef on the remote host:
+On the local host, to deploy the requested applications on the remote host:
 
     knife solo cook sbdev
 
